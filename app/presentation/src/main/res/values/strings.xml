@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Link</string>
+    <string name="ask_email">What\'s your email address?</string>
+    <string name="email_sub_heading">Enter the email address at which you can be contacted. No one will see this on your profile.</string>
+    <string name="create_password">Create a password</string>
+    <string name="password_sub_heading">Create a password with at least six letters or numbers. It should be something that other can\'t guess. </string>
+    <string name="ask_dob">What\'s your date of birth?</string>
+    <string name="create_username">Create a Username</string>
+    <string name="username_sub_heading"> Add a username that other can see on your profile. You can change this at any time </string>
+    <string name="username">Username</string>
+    <string name="email">Email address</string>
+    <string name="password">Password</string>
+    <string name="have_account">I already have an account</string>
+    <string name="ask_name"> What\'s your name?</string>
+    <string name="full_name">Full name</string>
+</resources>
