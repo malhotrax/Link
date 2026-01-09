@@ -7,7 +7,7 @@ data class SignUpState(
     val password: String = "",
     val fullName: String = "",
     val username: String = "",
-    val dateOfBirth: String = "",
+    val dateOfBirth: String = "dd/mm/yy",
     val showPassword: Boolean = false,
     val currentStep: SignUpStep = SignUpStep.SetEmail,
     val invalidEmail: Boolean = false,

@@ -54,12 +54,9 @@ fun SignUpScreen(
     LaunchedEffect(Unit) {
         viewModel.uiEvent.collect { event ->
             when (event) {
-                SignUpUiEvent.NavigateBack -> {
-                    navigateBack()
-                }
-                SignUpUiEvent.NavigateToHome -> {
-                    navigateToHome()
-                }
+                SignUpUiEvent.NavigateBack -> navigateBack()
+                SignUpUiEvent.NavigateToHome -> navigateToHome()
+
             }
         }
     }
@@ -150,7 +147,7 @@ fun SignUpScreen(
                             goToUsernameScreen = {
                                 viewModel.onEvent(NextStep(SignUpStep.SetFullName))
                             },
-                            isInputWrong = Validator.checkFullName(state.fullName)
+                            isInputWrong = state.invalidFullName
                         )
                     }
 
@@ -161,9 +158,9 @@ fun SignUpScreen(
                                 viewModel.onEvent(UsernameChanged(username))
                             },
                             goToWelcomeScreen = {
-
+                                viewModel.onEvent(NextStep(SignUpStep.SetUserName))
                             },
-                            isInputWrong = Validator.checkUserName(state.username)
+                            isInputWrong = state.invalidUsername
                         )
                     }
                 }

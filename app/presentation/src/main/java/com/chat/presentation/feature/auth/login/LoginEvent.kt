@@ -6,4 +6,5 @@ sealed class LoginEvent {
     object Login : LoginEvent()
     object TogglePasswordVisibility : LoginEvent()
     object ForgetPassword : LoginEvent()
+    object NavigateToSignUp : LoginEvent()
 }

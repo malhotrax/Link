@@ -66,7 +66,7 @@ class SignUpVM : ViewModel() {
             }
             SignUpStep.CreatePassword -> {
                 _state.value = _state.value.copy(
-                    invalidPassword =  _state.value.password.length < 6
+                    invalidPassword =  Validator.checkPassword(_state.value.password)
                 )
                 if(!_state.value.invalidPassword){
                     _state.value = _state.value.copy(

@@ -9,4 +9,8 @@ sealed class Screen {
     @Serializable object SignUp : Screen()
 
     @Serializable object Home: Screen()
+
+    @Serializable object ChatList: Screen()
+    @Serializable object ChatConversation: Screen()
+
 }

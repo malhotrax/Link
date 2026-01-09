@@ -14,7 +14,8 @@ val NotoSans = FontFamily(
     Font(R.font.noto_sans_italic, FontWeight.Normal, FontStyle.Italic),
     Font(R.font.noto_sans_medium, FontWeight.Medium),
     Font(R.font.noto_sans_bold, FontWeight.Bold),
-    Font(R.font.noto_sans_bold_italic, FontWeight.Bold, FontStyle.Italic)
+    Font(R.font.noto_sans_bold_italic, FontWeight.Bold, FontStyle.Italic),
+    Font(R.font.noto_sans_extra_bold, FontWeight.Bold)
 )
 
 // 2. Set of Material 3 typography styles
@@ -34,6 +35,12 @@ val Typography = Typography(
         fontWeight = FontWeight.SemiBold,
         fontSize = 28.sp,
         lineHeight = 36.sp
+    ),
+    headlineLarge = TextStyle(
+        fontFamily = NotoSans,
+        fontWeight = FontWeight.ExtraBold,
+        fontSize = 32.sp,
+        lineHeight = 40.sp
     ),
 
     // Title Styles - Used for User Names in chat lists

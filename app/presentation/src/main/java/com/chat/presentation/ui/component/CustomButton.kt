@@ -6,7 +6,9 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -22,18 +24,13 @@ fun CustomButton(
     onClick: () -> Unit,
     text: String
 ) {
-    Box(
+    Button(
         modifier = modifier
-            .fillMaxWidth()
-            .clip(RoundedCornerShape(15.dp))
-            .background(MaterialTheme.colorScheme.primary)
-            .clickable(onClick = onClick )
-            .shadow(15.dp),
-        contentAlignment = Alignment.Center
+            .fillMaxWidth(),
+        onClick = onClick
     ) {
         Text(
-            modifier = Modifier
-                .padding(8.dp),
+            modifier = Modifier,
             text = text,
             style = MaterialTheme.typography.titleMedium,
             color = MaterialTheme.colorScheme.onPrimary,
