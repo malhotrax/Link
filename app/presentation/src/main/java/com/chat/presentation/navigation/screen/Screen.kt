@@ -13,4 +13,10 @@ sealed class Screen {
     @Serializable object ChatList: Screen()
     @Serializable object ChatConversation: Screen()
 
+    @Serializable object Search: Screen()
+    @Serializable object Profile: Screen()
+
+    @Serializable object Groups: Screen()
+    @Serializable object Requests: Screen()
+
 }

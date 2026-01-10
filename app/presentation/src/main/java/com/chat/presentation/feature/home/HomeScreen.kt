@@ -22,13 +22,15 @@ import com.chat.presentation.feature.home.component.BottomNavigation
 import com.chat.presentation.feature.profile.ProfileScreen
 import com.chat.presentation.feature.profile.component.profileItems
 import com.chat.presentation.feature.requests.RequestsScreen
-import com.chat.presentation.util.ActionButton
+import com.chat.presentation.util.BottomNavActionButton
 import com.chat.presentation.util.PrimaryTabs
 import kotlinx.coroutines.launch
 
 @Composable
 fun HomeScreen(
-
+    navigateToConversation: () -> Unit,
+    navigateToSearch: () -> Unit,
+    navigateToFindNewFriends: () -> Unit,
 ) {
     val primaryTabs = PrimaryTabs.entries
     val pagerState = rememberPagerState(pageCount = { primaryTabs.size})
@@ -49,7 +51,7 @@ fun HomeScreen(
             BottomNavigation(
                 modifier = Modifier,
                 actionButtons = primaryTabs.mapIndexed { index, tab ->
-                    ActionButton(
+                    BottomNavActionButton(
                         title = tab.title,
                         unselectedIcon = tab.unselectedIcon,
                         selectedIcon = tab.selectedIcon,
@@ -83,7 +85,11 @@ fun HomeScreen(
                 modifier = Modifier
             ) { pageIndex ->
                 when(primaryTabs[pageIndex]) {
-                    PrimaryTabs.CHATS -> ChatListScreen(navigateToConversation = {})
+                    PrimaryTabs.CHATS -> ChatListScreen(
+                        navigateToConversation = navigateToConversation,
+                        navigateToSearch = navigateToSearch,
+                        navigateToFindNewFriends = navigateToFindNewFriends
+                    )
                     PrimaryTabs.GROUPS -> GroupScreen()
                     PrimaryTabs.REQUESTS -> RequestsScreen()
                     PrimaryTabs.PROFILE -> ProfileScreen(profileItems = profileItems, "https://img.freepik.com/free-photo/close-up-portrait-handsome-smiling-young-man-white-t-shirt-blurry-outdoor-nature_176420-6305.jpg?semt=ais_hybrid&w=740&q=80", {},{})

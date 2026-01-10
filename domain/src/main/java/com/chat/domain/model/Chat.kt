@@ -8,5 +8,6 @@ data class Chat(
     val user: User,
     val status: ChatStatus,
     val preview: String,
-    val lastActivity: Timestamp
+    val lastActivity: Timestamp,
+    val isPinned: Boolean = false
 )

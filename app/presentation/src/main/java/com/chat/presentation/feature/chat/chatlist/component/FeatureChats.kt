@@ -5,17 +5,21 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import com.chat.domain.model.Chat
 import com.chat.domain.model.User
 import com.chat.domain.util.ChatStatus
 import java.sql.Timestamp
 
 @Composable
-fun FeatureChats(modifier: Modifier = Modifier) {
+fun FeatureChats(
+    modifier: Modifier = Modifier,
+    navigateToConversation: () -> Unit,
+    onLongClick: () -> Unit,
+    expandProfile: () -> Unit
+) {
     LazyColumn(
         modifier = modifier
-            .fillMaxWidth()
+            .fillMaxWidth(),
     ) {
         items(10) {
             ChatListItem(
@@ -32,8 +36,8 @@ fun FeatureChats(modifier: Modifier = Modifier) {
                     preview = "This is a last message from Manish Malhotra. So it's better if you get back to work as soon as possible.",
                     lastActivity = Timestamp(System.currentTimeMillis())
                 ),
-                navigateToConversation = {},
-                expandProfile = {}
+                navigateToConversation = navigateToConversation,
+                expandProfile = expandProfile
             )
         }
     }

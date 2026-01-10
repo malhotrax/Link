@@ -1,10 +1,9 @@
 package com.chat.presentation.feature.profile.component
 
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.Email
-import androidx.compose.material.icons.rounded.Info
+import androidx.compose.material.icons.outlined.Email
+import androidx.compose.material.icons.outlined.Info
 import androidx.compose.material.icons.rounded.PersonOutline
-import androidx.compose.material.icons.rounded.PersonPin
 import androidx.compose.ui.graphics.vector.ImageVector
 
 
@@ -25,13 +24,13 @@ val profileItems = listOf(
     ProfileItemModel(
         "About",
         "Android Developer",
-        Icons.Rounded.Info,
+        Icons.Outlined.Info,
         {}
     ),
     ProfileItemModel(
         "Email",
         "manish@gmail.com",
-        Icons.Rounded.Email,
+        Icons.Outlined.Email,
         {}
     )
 )

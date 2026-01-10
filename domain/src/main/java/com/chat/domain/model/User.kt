@@ -6,4 +6,16 @@ data class User(
     val userName: String,
     val email: String,
     val profile: String
-)
+) {
+    companion object {
+        fun getEmptyUser(): User {
+            return User(
+                userId = "",
+                fullName = "",
+                userName = "",
+                email = "",
+                profile = ""
+            )
+        }
+    }
+}

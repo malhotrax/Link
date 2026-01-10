@@ -23,6 +23,10 @@ fun GroupScreen(modifier: Modifier = Modifier) {
             value = "",
             onValueChange = {}
         )
-        FeatureChats()
+        FeatureChats(
+            navigateToConversation = {},
+            onLongClick = {},
+            expandProfile = {}
+        )
     }
 }
