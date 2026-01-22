@@ -1,6 +1,5 @@
 package com.chat.presentation.feature.auth.login
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.chat.domain.model.login.LoginCredential
@@ -37,8 +36,9 @@ class LoginVM @Inject constructor(
             _uiEvent.emit(event)
         }
     }
+
     fun onEvent(event: LoginEvent) {
-        when(event) {
+        when (event) {
             is LoginEvent.EmailChanged -> onEmailChanged(event.email)
             LoginEvent.ForgetPassword -> onForgetPassword()
             LoginEvent.Login -> onLogin()
@@ -61,14 +61,16 @@ class LoginVM @Inject constructor(
     }
 
     private fun handleLogin(response: ApiResponse<LoginResponse>) {
-        when(response) {
+        when (response) {
             is ApiResponse.Error -> {
                 _state.value = _state.value.copy(isLoading = false)
                 sendUiEvent(LoginUiEvent.ShowSnackBar(response.message))
             }
+
             ApiResponse.Loading -> {
                 _state.value = _state.value.copy(isLoading = true)
             }
+
             is ApiResponse.Success<LoginResponse> -> {
                 response.data?.data?.let { data ->
                     val accessToken = data.accessToken
@@ -87,18 +89,21 @@ class LoginVM @Inject constructor(
             }
         }
     }
+
     private fun onLogin() {
         _state.value = _state.value.copy(
             invalidEmail = Validator.checkEmail(_state.value.email),
             invalidPassword = _state.value.password.length < 6
         )
-        if(!_state.value.invalidEmail && !_state.value.invalidPassword) {
+        if (!_state.value.invalidEmail && !_state.value.invalidPassword) {
             _state.value = _state.value.copy(isLoading = true)
             viewModelScope.launch {
-                userRepository.login(LoginCredential(
-                    email = _state.value.email,
-                    password = _state.value.password
-                )).collect { response ->
+                userRepository.login(
+                    LoginCredential(
+                        email = _state.value.email,
+                        password = _state.value.password
+                    )
+                ).collect { response ->
                     handleLogin(response)
                 }
             }

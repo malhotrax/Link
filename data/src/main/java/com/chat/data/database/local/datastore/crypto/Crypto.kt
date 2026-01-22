@@ -1,4 +1,4 @@
-package com.chat.data.datastore.crypto
+package com.chat.data.database.local.datastore.crypto
 
 import android.security.keystore.KeyGenParameterSpec
 import android.security.keystore.KeyProperties
@@ -21,11 +21,13 @@ object Crypto {
         .apply {
             load(null)
         }
+
     private fun getKey(): SecretKey {
         val existingKey = keyStore
-            .getEntry(KEY_ALIAS,null) as? KeyStore.SecretKeyEntry
+            .getEntry(KEY_ALIAS, null) as? KeyStore.SecretKeyEntry
         return existingKey?.secretKey ?: createKey()
     }
+
     private fun createKey(): SecretKey {
         return KeyGenerator
             .getInstance(ALGORITHM)
@@ -46,7 +48,7 @@ object Crypto {
     }
 
     fun encrypt(bytes: ByteArray): ByteArray {
-        cipher.init(Cipher.ENCRYPT_MODE,getKey())
+        cipher.init(Cipher.ENCRYPT_MODE, getKey())
         val iv = cipher.iv
         val encrypted = cipher.doFinal(bytes)
         return iv + encrypted

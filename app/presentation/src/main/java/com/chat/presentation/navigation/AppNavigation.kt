@@ -1,14 +1,9 @@
 package com.chat.presentation.navigation
 
-import android.renderscript.ScriptC
-import android.util.Log
-import androidx.compose.foundation.gestures.ScrollableState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateListOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.navigation3.runtime.entryProvider
@@ -30,11 +25,13 @@ fun AppNavigation(
 
     LaunchedEffect(authState) {
         backStack.clear()
-        backStack.add(when(authState) {
-            AuthState.Loading -> Screen.Splash
-            AuthState.LoggedIn -> Screen.Home
-            AuthState.LoggedOut -> Screen.Login
-        })
+        backStack.add(
+            when (authState) {
+                AuthState.Loading -> Screen.Splash
+                AuthState.LoggedIn -> Screen.Home
+                AuthState.LoggedOut -> Screen.Login
+            }
+        )
     }
     NavDisplay(
         backStack = backStack,

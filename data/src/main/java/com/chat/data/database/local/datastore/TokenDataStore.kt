@@ -1,8 +1,6 @@
 package com.chat.data.database.local.datastore
 
 import android.content.Context
-import android.util.Log
-import androidx.datastore.dataStore
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.preferencesDataStore
 import com.chat.data.database.local.datastore.token.TokenKeys
@@ -40,8 +38,7 @@ class TokenDataStore @Inject constructor(
     }
 
     suspend fun hasAccessToken(): Boolean {
-        val has =  context.dataStore.data.map { it[TokenKeys.ACCESS_TOKEN] !=null }.first()
-        Log.d("Has_Token",has.toString())
+        val has = context.dataStore.data.map { it[TokenKeys.ACCESS_TOKEN] != null }.first()
         return has
     }
 }

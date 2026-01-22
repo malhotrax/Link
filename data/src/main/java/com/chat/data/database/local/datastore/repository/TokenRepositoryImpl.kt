@@ -5,7 +5,7 @@ import com.chat.domain.repository.TokenRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class TokenRepositoryImpl @Inject constructor (
+class TokenRepositoryImpl @Inject constructor(
     private val tokenDataStore: TokenDataStore
 ) : TokenRepository {
     override suspend fun saveTokens(accessToken: String, refreshToken: String) {
