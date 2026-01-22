@@ -1,4 +1,7 @@
 package com.chat.presentation.navigation
 
-class AuthState {
+sealed interface AuthState {
+    object Loading: AuthState
+    object LoggedIn: AuthState
+    object LoggedOut: AuthState
 }

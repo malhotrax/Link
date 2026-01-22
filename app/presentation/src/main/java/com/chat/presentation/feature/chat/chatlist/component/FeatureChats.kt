@@ -30,7 +30,7 @@ fun FeatureChats(
                         fullName = "Manish Malhotra",
                         userName = "Manish",
                         email = "manish@gmail.com",
-                        profile = "https://img.freepik.com/free-photo/close-up-portrait-handsome-smiling-young-man-white-t-shirt-blurry-outdoor-nature_176420-6305.jpg?semt=ais_hybrid&w=740&q=80",
+                        profilePicUrl = "https://img.freepik.com/free-photo/close-up-portrait-handsome-smiling-young-man-white-t-shirt-blurry-outdoor-nature_176420-6305.jpg?semt=ais_hybrid&w=740&q=80",
                     ),
                     status = ChatStatus.READ,
                     preview = "This is a last message from Manish Malhotra. So it's better if you get back to work as soon as possible.",
