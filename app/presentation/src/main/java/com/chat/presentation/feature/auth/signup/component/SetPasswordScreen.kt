@@ -13,7 +13,8 @@ fun SetPasswordScreen(
     goToDOBScreen: () -> Unit,
     isInputWrong: Boolean = false,
     showPassword: Boolean = false,
-    togglePasswordVisibility: () -> Unit = {}
+    togglePasswordVisibility: () -> Unit = {},
+    isLoading: Boolean = false
 ) {
     TemplateForSignUp(
         heading = stringResource(R.string.create_password),
@@ -28,6 +29,7 @@ fun SetPasswordScreen(
         isPassword = true,
         showPassword = showPassword,
         togglePasswordVisibility = togglePasswordVisibility,
+        isLoading = isLoading
 
     )
 }

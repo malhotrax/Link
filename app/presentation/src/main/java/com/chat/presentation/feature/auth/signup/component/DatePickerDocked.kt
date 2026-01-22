@@ -31,7 +31,7 @@ fun DatePickerDocked(
     onSelectedDateChanged: (String) -> Unit,
     toggleDatePickerVisibility: () -> Unit,
     onDismiss: () -> Unit,
-    isInputWrong: Boolean = false
+    isInputWrong: Boolean = false,
 ) {
     val datePickerState = rememberDatePickerState()
     Box(

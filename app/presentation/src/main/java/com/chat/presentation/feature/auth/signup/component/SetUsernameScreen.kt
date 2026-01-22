@@ -11,7 +11,9 @@ fun SetUsernameScreen(
     value: String,
     onValueChange: (String) -> Unit,
     goToWelcomeScreen: () -> Unit,
-    isInputWrong: Boolean = false
+    isInputWrong: Boolean = false,
+    errorMessage: String = "",
+    isLoading: Boolean = false
 ) {
     TemplateForSignUp(
         heading = stringResource(R.string.create_username),
@@ -21,8 +23,9 @@ fun SetUsernameScreen(
         goToNextScreen = goToWelcomeScreen,
         buttonText = "Next",
         inputLabel = stringResource(R.string.username),
-        errorMessage = "Invalid username",
-        isInputWrong = isInputWrong
+        errorMessage = errorMessage,
+        isInputWrong = isInputWrong,
+        isLoading = isLoading
     )
 }
 

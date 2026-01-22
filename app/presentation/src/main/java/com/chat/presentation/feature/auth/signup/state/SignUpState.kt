@@ -1,4 +1,4 @@
-package com.chat.presentation.feature.auth.signup
+package com.chat.presentation.feature.auth.signup.state
 
 import com.chat.presentation.feature.auth.signup.component.SignUpStep
 
@@ -11,8 +11,11 @@ data class SignUpState(
     val showPassword: Boolean = false,
     val currentStep: SignUpStep = SignUpStep.SetEmail,
     val invalidEmail: Boolean = false,
+    val emailError: String = "",
+    val usernameError: String = "",
     val invalidPassword: Boolean = false,
     val invalidFullName: Boolean = false,
     val invalidUsername: Boolean = false,
-    val invalidDateOfBirth: Boolean = false
+    val invalidDateOfBirth: Boolean = false,
+    val isLoading: Boolean = false
 )

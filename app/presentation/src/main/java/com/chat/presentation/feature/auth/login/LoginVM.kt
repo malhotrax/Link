@@ -3,7 +3,8 @@ package com.chat.presentation.feature.auth.login
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.chat.domain.model.login.LoginCredential
-import com.chat.domain.model.login.LoginResponse
+import com.chat.domain.model.Response
+import com.chat.domain.model.login.LoginInfo
 import com.chat.domain.repository.TokenRepository
 import com.chat.domain.repository.UserRepository
 import com.chat.domain.util.ApiResponse
@@ -25,7 +26,7 @@ class LoginVM @Inject constructor(
     private val userRepository: UserRepository,
     private val tokenRepository: TokenRepository
 ) : ViewModel() {
-    private val _state = MutableStateFlow<LoginState>(LoginState())
+    private val _state = MutableStateFlow(LoginState())
     val state = _state.asStateFlow()
 
     private val _uiEvent = MutableSharedFlow<LoginUiEvent>()
@@ -60,7 +61,7 @@ class LoginVM @Inject constructor(
         _state.value = _state.value.copy(password = password)
     }
 
-    private fun handleLogin(response: ApiResponse<LoginResponse>) {
+    private fun handleLogin(response: ApiResponse<Response<LoginInfo>>) {
         when (response) {
             is ApiResponse.Error -> {
                 _state.value = _state.value.copy(isLoading = false)
@@ -71,7 +72,7 @@ class LoginVM @Inject constructor(
                 _state.value = _state.value.copy(isLoading = true)
             }
 
-            is ApiResponse.Success<LoginResponse> -> {
+            is ApiResponse.Success -> {
                 response.data?.data?.let { data ->
                     val accessToken = data.accessToken
                     val refreshToken = data.refreshToken

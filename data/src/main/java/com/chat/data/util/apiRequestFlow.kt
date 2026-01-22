@@ -29,6 +29,6 @@ fun <T> apiRequestFlow(
                 }
             }
         } catch (e: Exception) {
-            emit(ApiResponse.Error(e.toString() ?: e.toString(), 400))
+            emit(ApiResponse.Error(e.localizedMessage ?: e.toString(), 400))
         }
 }.flowOn(Dispatchers.IO)

@@ -10,6 +10,7 @@ fun LoginRequestDto.toDomain(): LoginCredential {
     )
 }
 
+
 fun LoginCredential.toDto(): LoginRequestDto {
     return LoginRequestDto(
         email = this.email,

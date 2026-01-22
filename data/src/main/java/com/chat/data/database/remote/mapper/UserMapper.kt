@@ -1,5 +1,6 @@
 package com.chat.data.database.remote.mapper
 
+import com.chat.data.database.remote.dto.model.RegisterRequestDto
 import com.chat.data.database.remote.dto.model.UserDto
 import com.chat.domain.model.User
 
@@ -13,13 +14,14 @@ fun UserDto.toDomain(): User {
     )
 }
 
-fun User.toDto(): UserDto {
-    return UserDto(
-        userId = this.userId,
-        fullName = this.fullName,
+
+fun User.toRegisterDto( password: String) : RegisterRequestDto {
+    return RegisterRequestDto(
         username = this.userName,
         email = this.email,
-        profilePicUrl = this.profilePicUrl
+        dateOfBirth = this.dateOfBirth,
+        fullName = this.fullName,
+        profilePicUrl = this.profilePicUrl,
+        password = password
     )
 }
-

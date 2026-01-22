@@ -28,7 +28,7 @@ fun SetDOBScreen(
     selectedDate: String,
     onSelectedDateChanged: (String) -> Unit,
     buttonText: String,
-    goToNextScreen: () -> Unit
+    goToNextScreen: () -> Unit,
 ) {
     Column(
         modifier = Modifier

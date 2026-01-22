@@ -12,6 +12,7 @@ fun SetFullNameScreen(
     onValueChange: (String) -> Unit,
     goToUsernameScreen: () -> Unit,
     isInputWrong: Boolean = false,
+    isLoading: Boolean = false
 ) {
     TemplateForSignUp(
         heading = stringResource(R.string.ask_name),
@@ -22,6 +23,7 @@ fun SetFullNameScreen(
         errorMessage = "Invalid full name",
         goToNextScreen = goToUsernameScreen,
         isInputWrong = isInputWrong,
+        isLoading = isLoading
 
     )
 }

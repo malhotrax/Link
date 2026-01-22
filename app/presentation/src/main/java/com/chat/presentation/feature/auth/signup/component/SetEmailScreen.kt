@@ -12,6 +12,8 @@ fun SetEmailScreen(
     onValueChange: (String) -> Unit,
     goToPasswordScreen: () -> Unit,
     isInputWrong: Boolean = false,
+    errorMessage: String = "",
+    isLoading: Boolean = false
 ) {
     TemplateForSignUp(
         heading = stringResource(R.string.ask_email),
@@ -21,8 +23,10 @@ fun SetEmailScreen(
         goToNextScreen = goToPasswordScreen,
         buttonText = "Next",
         inputLabel = stringResource(R.string.email),
-        errorMessage = "Invalid email",
+        errorMessage = errorMessage,
         isInputWrong = isInputWrong,
+        isLoading = isLoading
+
     )
 }
 

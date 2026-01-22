@@ -1,4 +1,4 @@
-package com.chat.presentation.feature.auth.signup
+package com.chat.presentation.feature.auth.signup.event
 
 import com.chat.presentation.feature.auth.signup.component.SignUpStep
 
