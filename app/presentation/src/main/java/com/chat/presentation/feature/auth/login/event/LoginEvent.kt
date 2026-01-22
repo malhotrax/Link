@@ -1,4 +1,4 @@
-package com.chat.presentation.feature.auth.login
+package com.chat.presentation.feature.auth.login.event
 
 sealed class LoginEvent {
     data class EmailChanged(val email: String) : LoginEvent()

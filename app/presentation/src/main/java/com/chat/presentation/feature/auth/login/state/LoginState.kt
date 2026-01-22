@@ -1,4 +1,4 @@
-package com.chat.presentation.feature.auth.login
+package com.chat.presentation.feature.auth.login.state
 
 data class LoginState(
     val email: String = "",
@@ -6,4 +6,5 @@ data class LoginState(
     val showPassword: Boolean = false,
     val invalidPassword: Boolean = false,
     val invalidEmail: Boolean = false,
+    val isLoading: Boolean = false
 )
